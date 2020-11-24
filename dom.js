@@ -56,7 +56,6 @@ enter.value = 'Hahaha!'
 
 var submit = document.querySelector('input[type="submit"]')
 submit.value = 'Send it >'
-*/
 
 // querySelectorAll()
 var myTitles = document.querySelectorAll('.title')
@@ -67,3 +66,30 @@ var odds = document.querySelectorAll('li:nth-child(odd)')
 for (let i = 0; i < odds.length; i++) {
   odds[i].style.backgroundColor = 'dodgerblue'
 }
+
+// TREVERSING THE DOM
+// .parentNode
+// var itemList = document.querySelector('#items')
+// the parent is the div "main" so we change the background color of all the card
+// itemList.parentNode.style.backgroundColor = 'blanchedAlmond'
+
+// .parentElement  works in the same way as parentNode
+var itemList = document.querySelector('#items')
+// the parent is the div "main" so we change the background color of all the card
+itemList.parentElement.style.backgroundColor = 'IndianRed'
+
+// childNodes
+console.log(itemList.childNodes)
+// children
+console.log(itemList.children)
+var childrenItems = itemList.children
+childrenItems[0].style.color = 'Olive'
+childrenItems[0].style.fontWeight = 'Bold'
+
+// firstChild
+console.log(itemList.firstChild)
+itemList.firstElementChild.textContent = 'Boobies'
+*/
+// siblings
+// better to use
+// .firstElementChild .lastElementChild .nextElementSibling .previousElementSibling
