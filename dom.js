@@ -89,7 +89,51 @@ childrenItems[0].style.fontWeight = 'Bold'
 // firstChild
 console.log(itemList.firstChild)
 itemList.firstElementChild.textContent = 'Boobies'
-*/
+
 // siblings
 // better to use
 // .firstElementChild .lastElementChild .nextElementSibling .previousElementSibling
+
+// createElement
+// create a new div
+var newDiv = document.createElement('div')
+newDiv.className = 'hello'
+newDiv.id = 'aNewDiv'
+newDiv.style.color = 'Midnightblue'
+// we have an empty div, so add a textNode
+// create textNode, then append to our newDiv
+var newDivText = document.createTextNode('Hallo meine frau!')
+newDiv.appendChild(newDivText)
+
+// now put the object just below the header container  'Item Lister'
+// get where to put it
+var container = document.querySelector('header .container') // insert here
+var h1 = document.querySelector('header h1') // before this element
+container.insertBefore(newDiv, h1)
+console.log(newDiv)
+
+
+HANDLING EVENTS with JS
+document.getElementById('button').addEventListener('click', buttonClick)
+
+function buttonClick (e) {
+  console.log('button has been clicked')
+  console.log(e)
+  console.log(e.target)
+  console.log(e.target.id)
+  console.log(e.target.classList) // gives array of the css token for the button
+  var output = document.getElementById('output')
+  output.innerHTML = e.offsetX + ', ' + e.offsetY
+  looking at the mouse position when clicked
+  e.clientX  e.clientY  are with respect to the window of the browser
+  these are inside the object clicked
+  console.log(e.offsetX + ', ' + e.offsetY)
+}
+*/
+
+var button = document.getElementById('button')
+// button.addEventListener('click', runEvent)
+button.addEventListener('dblclick', runEvent)
+function runEvent (e) {
+  console.log('EVENT TYPE: ' + e.type)
+}
