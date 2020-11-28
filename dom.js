@@ -112,7 +112,6 @@ var h1 = document.querySelector('header h1') // before this element
 container.insertBefore(newDiv, h1)
 console.log(newDiv)
 
-
 HANDLING EVENTS with JS
 document.getElementById('button').addEventListener('click', buttonClick)
 
@@ -129,11 +128,37 @@ function buttonClick (e) {
   these are inside the object clicked
   console.log(e.offsetX + ', ' + e.offsetY)
 }
-*/
 
 var button = document.getElementById('button')
+var myBox = document.getElementById('mybox')
+// myBox.addEventListener('mouseenter', runEvent) // only runs when entering the box
+// myBox.addEventListener('mouseover', runEvent) // runs even if inside box, but over an element
+myBox.addEventListener('mousemove', runEvent)
+
+myBox.addEventListener('mouseleave', runEvent)
 // button.addEventListener('click', runEvent)
-button.addEventListener('dblclick', runEvent)
+// button.addEventListener('dblclick', runEvent)
+// button.addEventListener('mousedown', runEvent)
+// button.addEventListener('mouseup', runEvent)
+
+var output = document.getElementById('output')
 function runEvent (e) {
   console.log('EVENT TYPE: ' + e.type)
+  // console.log(e.relatedTarget) // can show where we're over, careful might give errors
+  output.innerHTML = '<b>' + e.offsetX + ', ' + e.offsetY + '</b>'
+  if (e.type === 'mouseleave') { output.innerHTML = ','}
 }
+*/
+
+// Accesing our input field
+var output = document.getElementById('output')
+// var itemInput = document.querySelector('input[type="text"]') // we only have one of type text
+var form = document.querySelector('form') // we only have one
+// var selector = document.querySelector('select') // get the combobox
+
+// itemInput.addEventListener('keyup', runEvent)
+// selector.addEventListener('change', runEvent)
+
+// and now, the SUBMIT form EVENT
+form.addEventListener('submit', (e) => { e.preventDefault() })
+// prevent from submiting the form as usual
